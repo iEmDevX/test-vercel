@@ -1,3 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Custom theme configuration for Tailwind CSS v4 */
+@theme {
+  --font-display: "Inter", "Helvetica Neue", "Arial", sans-serif;
+  --color-brand-50: oklch(0.98 0.02 280);
+  --color-brand-100: oklch(0.95 0.05 280);
+  --color-brand-500: oklch(0.65 0.15 280);
+  --color-brand-900: oklch(0.25 0.12 280);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-spin-slow: 3s linear infinite;
+}
