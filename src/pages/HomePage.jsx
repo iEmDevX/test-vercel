@@ -1,15 +1,21 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Layout, Card, Button, FeatureCard } from '../components'
+import { Layout, Card, Button, FeatureCard, Datepicker } from '../components'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 
 const HomePage = () => {
   const [count, setCount] = useState(0)
+  const [selectedDate, setSelectedDate] = useState(null)
   const navigate = useNavigate()
 
   const handleLogout = () => {
     navigate('/')
+  }
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date)
+    console.log('Selected date:', date)
   }
 
   const features = [
@@ -72,14 +78,32 @@ const HomePage = () => {
 
         {/* Counter Card */}
         <Card className="p-8 mb-8 max-w-lg mx-auto">
-          <Button 
-            onClick={() => setCount((count) => count + 1)}
-            size="lg"
-            className="mb-4 text-xl"
-          >
-            Count is {count}
-          </Button>
-          <p className="text-gray-600 text-lg">
+          <div className="flex flex-col gap-6 items-center">
+            <div className="text-center">
+              <h3 className="text-lg font-semibold mb-2">Counter</h3>
+              <Button 
+                onClick={() => setCount((count) => count + 1)}
+                size="lg"
+                className="mb-4 text-xl"
+              >
+                Count is {count}
+              </Button>
+            </div>
+            <div className="text-center">
+              <h3 className="text-lg font-semibold mb-2">Date Picker</h3>
+              <Datepicker 
+                placeholder="Select a date"
+                onChange={handleDateChange}
+                value={selectedDate}
+              />
+              {selectedDate && (
+                <p className="text-sm text-gray-600 mt-2">
+                  Selected: {selectedDate.toLocaleDateString()}
+                </p>
+              )}
+            </div>
+          </div>
+          <p className="text-gray-600 text-lg mt-6">
             Edit <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono text-web-green-600">src/App.jsx</code> and save to test HMR
           </p>
         </Card>

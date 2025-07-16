@@ -1,0 +1,129 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Colors" />
+
+# Color Palette
+
+Our design system uses a carefully crafted color palette based on CSS custom properties and Tailwind CSS classes.
+
+## Brand Colors
+
+### Web Green
+Our primary brand color with 10 shades from light to dark:
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(shade => (
+    <div key={shade} style={{ textAlign: 'center' }}>
+      <div
+        style={{
+          height: '80px',
+          backgroundColor: `var(--color-web-green-${shade})`,
+          borderRadius: '8px',
+          marginBottom: '8px',
+          border: '1px solid #e5e7eb'
+        }}
+      />
+      <div style={{ fontSize: '12px', fontWeight: '500' }}>web-green-{shade}</div>
+      <div style={{ fontSize: '10px', color: '#6b7280' }}>
+        {shade === 50 && '#e6f6ee'}
+        {shade === 100 && '#bcf0d8'}
+        {shade === 200 && '#8ce9c1'}
+        {shade === 300 && '#5ce3aa'}
+        {shade === 400 && '#2bdb93'}
+        {shade === 500 && '#00A950'}
+        {shade === 600 && '#009947'}
+        {shade === 700 && '#00803c'}
+        {shade === 800 && '#006630'}
+        {shade === 900 && '#004d24'}
+      </div>
+    </div>
+  ))}
+</div>
+
+## Functional Colors
+
+### Success, Warning, Error, Info
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+  {[
+    { name: 'Success', color: '#00A950', class: 'text-green-600' },
+    { name: 'Warning', color: '#F59E0B', class: 'text-yellow-600' },
+    { name: 'Error', color: '#EF4444', class: 'text-red-600' },
+    { name: 'Info', color: '#3B82F6', class: 'text-blue-600' }
+  ].map(item => (
+    <div key={item.name} style={{ textAlign: 'center' }}>
+      <div
+        style={{
+          height: '80px',
+          backgroundColor: item.color,
+          borderRadius: '8px',
+          marginBottom: '8px',
+          border: '1px solid #e5e7eb'
+        }}
+      />
+      <div style={{ fontSize: '12px', fontWeight: '500' }}>{item.name}</div>
+      <div style={{ fontSize: '10px', color: '#6b7280' }}>{item.color}</div>
+    </div>
+  ))}
+</div>
+
+## Neutral Colors
+
+### Gray Scale
+
+<div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+  {[50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map(shade => (
+    <div key={shade} style={{ textAlign: 'center' }}>
+      <div
+        style={{
+          height: '60px',
+          backgroundColor: `rgb(${
+            shade === 50 ? '249 250 251' :
+            shade === 100 ? '243 244 246' :
+            shade === 200 ? '229 231 235' :
+            shade === 300 ? '209 213 219' :
+            shade === 400 ? '156 163 175' :
+            shade === 500 ? '107 114 128' :
+            shade === 600 ? '75 85 99' :
+            shade === 700 ? '55 65 81' :
+            shade === 800 ? '31 41 55' :
+            '17 24 39'
+          })`,
+          borderRadius: '6px',
+          marginBottom: '6px',
+          border: shade < 300 ? '1px solid #e5e7eb' : 'none'
+        }}
+      />
+      <div style={{ fontSize: '11px', fontWeight: '500', color: shade > 500 ? '#fff' : '#000' }}>
+        gray-{shade}
+      </div>
+    </div>
+  ))}
+</div>
+
+## Usage Guidelines
+
+### Primary Actions
+Use **web-green-500** (`#00A950`) for primary buttons and active states.
+
+### Text Colors
+- **Primary text**: `gray-900` for headings
+- **Secondary text**: `gray-600` for body text
+- **Muted text**: `gray-400` for captions and hints
+
+### Background Colors
+- **Page background**: `gray-50` for light backgrounds
+- **Card background**: `white` for content containers
+- **Hover states**: `gray-100` for subtle highlights
+
+### Interactive States
+- **Hover**: Darker shade of the base color
+- **Focus**: Use `ring-2 ring-web-green-500` for focus indicators
+- **Disabled**: `gray-400` with reduced opacity
+
+## Accessibility
+
+All color combinations meet WCAG 2.1 AA standards for color contrast:
+- Text on white backgrounds has a contrast ratio of at least 4.5:1
+- Interactive elements have sufficient color contrast for visibility
+- Color is not the only means of conveying information

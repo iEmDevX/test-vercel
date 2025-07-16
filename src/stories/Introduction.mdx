@@ -1,0 +1,95 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Design System/Introduction" />
+
+# Design System
+
+Welcome to our React + Tailwind CSS Design System! This collection provides a comprehensive set of reusable components built with consistency and accessibility in mind.
+
+## 🎨 Design Tokens
+
+Our design system is built around a set of design tokens that ensure visual consistency across all components:
+
+### Colors
+
+#### Brand Colors
+- **Web Green**: Our primary brand color palette
+  - `web-green-50` to `web-green-900`
+  - Primary: `#00A950`
+  - Darker: `#009947`
+
+#### Functional Colors
+- **Success**: Uses brand green (`#00A950`)
+- **Warning**: `#F59E0B`
+- **Error**: `#EF4444`
+- **Info**: `#3B82F6`
+
+#### Neutral Colors
+- **Grays**: From `neutral-50` to `neutral-900`
+- **White**: `#FFFFFF`
+
+### Typography
+- **Sizes**: From `text-xs` (0.75rem) to `text-5xl` (3rem)
+- **Weights**: `font-normal`, `font-medium`, `font-semibold`, `font-bold`
+
+### Spacing
+- **Scale**: Consistent spacing from `1` (4px) to `24` (96px)
+- **Usage**: Margins, paddings, and layout spacing
+
+### Border Radius
+- **sm**: 0.25rem (4px)
+- **md**: 0.5rem (8px) - Used for buttons and cards
+- **lg**: 0.75rem (12px) - For larger cards
+- **xl**: 1rem (16px)
+- **full**: 9999px - For circular elements
+
+## 🧩 Components
+
+### UI Components
+- **Button**: Primary, secondary, and outline variants with different sizes
+- **Input**: Form inputs with labels, validation, and error states
+- **Card**: Container component with optional hover effects
+
+### Layout Components
+- **Layout**: Page wrapper for consistent spacing and background
+- **FeatureCard**: Specialized card for displaying features
+- **SocialLoginButton**: Button for social authentication
+
+## ♿ Accessibility
+
+All components are built with accessibility in mind:
+- Proper ARIA attributes
+- Keyboard navigation support
+- Color contrast compliance
+- Screen reader compatibility
+
+## 📱 Responsive Design
+
+Components are designed to work seamlessly across all screen sizes:
+- **Mobile**: 320px - 767px
+- **Tablet**: 768px - 1023px
+- **Desktop**: 1024px and above
+
+## 🚀 Getting Started
+
+Import components from the components index:
+
+```jsx
+import { Button, Input, Card } from '../components';
+
+function MyComponent() {
+  return (
+    <Card className="p-6">
+      <Input label="Email" type="email" />
+      <Button variant="primary">Submit</Button>
+    </Card>
+  );
+}
+```
+
+## 🎯 Best Practices
+
+1. **Consistency**: Always use design tokens instead of custom values
+2. **Accessibility**: Test with screen readers and keyboard navigation
+3. **Performance**: Use components as intended to maintain performance
+4. **Documentation**: Keep stories updated when components change

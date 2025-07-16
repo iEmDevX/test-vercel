@@ -7,18 +7,27 @@ import {
   Button, 
   SocialLoginButton, 
   GoogleIcon, 
-  FacebookIcon 
+  FacebookIcon,
+  Datepicker
 } from '../components'
 
 const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [birthdate, setBirthdate] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsLoading(true)
+    
+    // Log form data including birthdate
+    console.log('Login data:', {
+      email,
+      password,
+      birthdate: birthdate ? birthdate.toLocaleDateString() : null
+    })
     
     // Simulate login process
     setTimeout(() => {
@@ -67,6 +76,23 @@ const LoginPage = () => {
               placeholder="Enter your password"
               required
             />
+
+            {/* Birthdate Field */}
+            <div className="space-y-2">
+              <label htmlFor="birthdate" className="block text-sm font-medium text-gray-700">
+                Date of Birth
+              </label>
+              <Datepicker
+                placeholder="Select your birthdate"
+                value={birthdate}
+                onChange={setBirthdate}
+              />
+              {birthdate && (
+                <p className="text-xs text-gray-500">
+                  Selected: {birthdate.toLocaleDateString()}
+                </p>
+              )}
+            </div>
 
             {/* Remember Me & Forgot Password */}
             <div className="flex items-center justify-between">
