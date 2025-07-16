@@ -6,7 +6,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="max-w-2xl mx-auto text-center">
         {/* Logo Section */}
         <div className="flex justify-center items-center space-x-8 mb-8">
@@ -27,44 +27,91 @@ function App() {
         </div>
 
         {/* Title */}
-        <h1 className="text-5xl font-bold text-white mb-8 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500">
+        <h1 className="text-5xl font-bold text-gray-900 mb-8" style={{
+          backgroundImage: 'linear-gradient(to right, var(--color-web-green-500), var(--color-web-green-600), var(--color-web-green-700))',
+          WebkitBackgroundClip: 'text',
+          backgroundClip: 'text',
+          WebkitTextFillColor: 'transparent'
+        }}>
           Vite + React + Tailwind
         </h1>
 
         {/* Counter Card */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 mb-8 border border-white/20 shadow-xl">
+        <div className="bg-white rounded-xl p-8 mb-8 border border-gray-200 shadow-md">
           <button 
             onClick={() => setCount((count) => count + 1)}
-            className="bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg text-xl mb-4"
+            className="text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow text-xl mb-4"
+            style={{
+              backgroundColor: 'var(--color-web-green-500)',
+            }}
+            onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--color-web-green-600)'}
+            onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--color-web-green-500)'}
           >
             Count is {count}
           </button>
-          <p className="text-white/80 text-lg">
-            Edit <code className="bg-black/30 px-2 py-1 rounded text-yellow-300">src/App.jsx</code> and save to test HMR
+          <p className="text-gray-600 text-lg">
+            Edit <code className="bg-gray-100 px-2 py-1 rounded text-sm font-mono" style={{ color: 'var(--color-web-green-600)' }}>src/App.jsx</code> and save to test HMR
           </p>
         </div>
 
         {/* Feature Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+          <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all duration-300 hover:border-opacity-50" 
+               style={{ '--hover-border-color': 'var(--color-web-green-300)' }}
+               onMouseEnter={(e) => e.target.style.borderColor = 'var(--color-web-green-300)'}
+               onMouseLeave={(e) => e.target.style.borderColor = 'rgb(229, 231, 235)'}>
             <div className="text-3xl mb-3">⚡</div>
-            <h3 className="text-white font-semibold mb-2">Lightning Fast</h3>
-            <p className="text-white/70 text-sm">Vite provides instant server start and lightning fast HMR</p>
+            <h3 className="text-gray-800 font-semibold mb-2 text-lg">Lightning Fast</h3>
+            <p className="text-gray-500 text-sm">Vite provides instant server start and lightning fast HMR</p>
           </div>
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+          <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all duration-300"
+               onMouseEnter={(e) => e.target.style.borderColor = 'var(--color-web-green-300)'}
+               onMouseLeave={(e) => e.target.style.borderColor = 'rgb(229, 231, 235)'}>
             <div className="text-3xl mb-3">⚛️</div>
-            <h3 className="text-white font-semibold mb-2">React Power</h3>
-            <p className="text-white/70 text-sm">Build interactive UIs with the power of React</p>
+            <h3 className="text-gray-800 font-semibold mb-2 text-lg">React Power</h3>
+            <p className="text-gray-500 text-sm">Build interactive UIs with the power of React</p>
           </div>
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+          <div className="bg-white rounded-xl p-6 border border-gray-200 hover:shadow-md transition-all duration-300"
+               onMouseEnter={(e) => e.target.style.borderColor = 'var(--color-web-green-300)'}
+               onMouseLeave={(e) => e.target.style.borderColor = 'rgb(229, 231, 235)'}>
             <div className="text-3xl mb-3">🎨</div>
-            <h3 className="text-white font-semibold mb-2">Tailwind CSS</h3>
-            <p className="text-white/70 text-sm">Rapidly build modern UIs with utility-first CSS</p>
+            <h3 className="text-gray-800 font-semibold mb-2 text-lg">Design System</h3>
+            <p className="text-gray-500 text-sm">Consistent design tokens for modern UI development</p>
+          </div>
+        </div>
+
+        {/* Info Section */}
+        <div className="rounded-xl p-6 mb-8 border" 
+             style={{
+               background: 'linear-gradient(to right, var(--color-web-green-50), var(--color-web-green-100))',
+               borderColor: 'var(--color-web-green-200)'
+             }}>
+          <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-web-green-800)' }}>
+            🎯 Built with Design Tokens
+          </h2>
+          <p className="text-base mb-4" style={{ color: 'var(--color-web-green-700)' }}>
+            This application demonstrates the power of a consistent design system using CSS custom properties and Tailwind CSS.
+          </p>
+          <div className="flex flex-wrap justify-center gap-2">
+            <span className="text-white px-3 py-1 rounded-full text-sm font-medium" 
+                  style={{ backgroundColor: 'var(--color-web-green-500)' }}>
+              CSS Variables
+            </span>
+            <span className="bg-white px-3 py-1 rounded-full text-sm font-medium border" 
+                  style={{ 
+                    color: 'var(--color-web-green-600)',
+                    borderColor: 'var(--color-web-green-300)'
+                  }}>
+              Design Tokens
+            </span>
+            <span className="bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-medium">
+              Tailwind CSS
+            </span>
           </div>
         </div>
 
         {/* Footer */}
-        <p className="text-white/60 text-sm">
+        <p className="text-gray-400 text-sm">
           Click on the Vite and React logos to learn more
         </p>
       </div>
